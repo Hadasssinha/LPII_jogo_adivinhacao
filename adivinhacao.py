@@ -54,6 +54,7 @@ def jogar():
 
       pontos_perdidos = abs(numero_secreto - aposta)
       pontos = pontos - pontos_perdidos
+      print ("ola")
 
     rodada = rodada + 1
 
