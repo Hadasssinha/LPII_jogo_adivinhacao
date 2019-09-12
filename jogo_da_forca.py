@@ -4,6 +4,7 @@ print("********************")
 
 palavra_secreta = "banana"
 letras_acertadas = ["_","_","_","_","_","_"]
+chances = 10
 
 enforcou = False    
 acertou = False
@@ -11,7 +12,8 @@ acertou = False
 print(letras_acertadas)
 
 while (not acertou and not enforcou):
-    chute = input("Qual letra? ")
+    print("Você tem {} chutes.".format(chances))
+    chute = input("Qual a letra? ")
     chute = chute.strip()
 
     index = 0
@@ -19,17 +21,22 @@ while (not acertou and not enforcou):
         if (chute.upper == letra.upper):
             letras_acertadas[index] = letra
         index += 1
-    
+
+    chances += -1    
     print(letras_acertadas)
-    
-    letras_faltando = str(letras_acertadas.count("_"))
-    if (letras_faltando == False):
+   
+    letras_faltando = letras_acertadas.count("_")
+    if (letras_faltando == 0):
         print("VOCÊ GANHOU!")
+        acertou = True
+    elif (chances == 0):
+        print(":( Você perdeu... Tente outra vez!")
+        enforcou = True
     else: 
         print("Estão faltando {} letras.".format(letras_faltando))
-    
+        print("Jogando...")
 
-    print("Jogando...")
+    
 
 print("Fim do Jogo.")
 
